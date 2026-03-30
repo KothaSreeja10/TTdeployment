@@ -1,11 +1,9 @@
+// ─── Admin Auth ────────────────────────────────────────────
+export const saveAdmin = (admin) => localStorage.setItem('admin', JSON.stringify(admin));
+export const getAdmin  = ()      => { try { return JSON.parse(localStorage.getItem('admin')); } catch { return null; } };
+export const removeAdmin = ()    => localStorage.removeItem('admin');
 
-
-export const saveUser   = (student) => localStorage.setItem('loggedStudent', JSON.stringify(student))
-export const getUser    = () => { const u = localStorage.getItem('loggedStudent'); return u ? JSON.parse(u) : null }
-export const removeUser = () => { localStorage.removeItem('loggedStudent'); localStorage.removeItem('user') }
-export const isLoggedIn = () => !!localStorage.getItem('loggedStudent')
-
-export const saveAdmin   = (admin) => localStorage.setItem('loggedAdmin', JSON.stringify(admin))
-export const getAdmin    = () => { const a = localStorage.getItem('loggedAdmin'); return a ? JSON.parse(a) : null }
-export const removeAdmin = () => localStorage.removeItem('loggedAdmin')
-export const isAdmin     = () => !!localStorage.getItem('loggedAdmin')
+// ─── Student "User" context (set by admin when viewing a student) ──
+export const saveUser   = (user) => localStorage.setItem('user', JSON.stringify(user));
+export const getUser    = ()     => { try { return JSON.parse(localStorage.getItem('user')); } catch { return null; } };
+export const removeUser = ()     => localStorage.removeItem('user');
